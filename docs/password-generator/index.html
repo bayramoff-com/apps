@@ -1,0 +1,652 @@
+
+<!DOCTYPE html>
+<html lang="az">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Password Generator | BAYRAMOFF</title>
+        <meta property="description" content>
+        <!--  Essential META Tags -->
+        <meta property="og:title" content="Password Generator">
+
+        <meta property="og:type" content="article" />
+        <meta property="og:image"
+            content="storage/webp/full/fb29a857-a838-4872-8f35-6a658e3288e5.webp">
+        <meta property="og:url" content="http://127.0.0.1:8000/web-apps/json-debugger">
+        <meta name="twitter:card" content="summary_large_image">
+
+        <!--  Non-Essential, But Recommended -->
+        <meta property="og:description" content>
+        <meta property="og:site_name" content="Bayramoff">
+        <meta name="twitter:image:alt" content="Password Generator">
+
+        <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http://127.0.0.1:8000/web-apps/json-debugger"
+        },
+        "headline": "Password Generator",
+        "description": "",
+        "image": "storage/webp/full/fb29a857-a838-4872-8f35-6a658e3288e5.webp",
+        "author": {
+            "@type": "Person",
+            "name": "Shamkhal Bayramov",
+            "url": "https://bayramoff.com/"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Bayramoff",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http://127.0.0.1:8000../assets/bayramoff.svg"
+            }
+        },
+      
+        "datePublished": "2022-12-08", 
+        "dateModified": "2022-12-08"
+    }
+</script>
+        <link rel="apple-touch-icon" sizes="180x180"
+            href="../assets/ico/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32"
+            href="../assets/ico/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16"
+            href="../assets/ico/favicon-16x16.png">
+        <link rel="manifest" href="../assets/ico/site.webmanifest">
+        <link rel="mask-icon" href="../assets/ico/safari-pinned-tab.svg"
+            color="#5bbad5">
+        <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+        <meta name="msapplication-TileColor" content="#603cba">
+        <meta name="msapplication-config"
+            content="../assets/ico/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="stylesheet" href="../assets/css/bulma.min.css">
+        <script src="https://kit.fontawesome.com/51708522bd.js"
+            crossorigin="anonymous"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+            rel="stylesheet">
+
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+        * {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+
+    </head>
+
+    <body>
+        <nav class="navbar is-fixed-top" role="navigation"
+            aria-label="main navigation">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="https://bayramoff.com">
+                        <img style=" min-height: 48px;" alt="bayramoff logo"
+                            src="../assets/bayramoff.svg" />
+                    </a>
+
+                    <a role="button" class="navbar-burger" aria-label="menu"
+                        aria-expanded="false" data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+
+            </div>
+        </nav>
+        <section class="section">
+            <div class="container is-widescreen">
+                <section class="section">
+                    <div class="container">
+                        <section class="section">
+                            <div class="container">
+
+                                <div class="columns ">
+                                    <div
+                                        class="column is-half is-offset-one-quarter">
+
+                                        <div class="content is-large">
+                                            <h2
+                                                class="has-text-weight-bold">PASSWORD
+                                                GENERATOR</h2>
+                                            <nav class="panel is-4">
+                                                <p class="panel-heading">
+                                                    Passwords is generated by
+                                                    offline
+                                                </p>
+
+                                                <div class="panel-block">
+                                                    <p
+                                                        class="control has-icons-left">
+                                                        <input class="input"
+                                                            id="password"
+                                                            type="text"
+                                                            value="********"
+                                                            aria-label="readonly input example"
+                                                            readonly>
+                                                        <span
+                                                            class="icon is-left">
+                                                            <i
+                                                                class="fa-solid fa-key"
+                                                                aria-hidden="true"></i>
+                                                        </span>
+                                                    </p>
+                                                </div>
+
+                                                <label class="panel-block">
+                                                    <span class="panel-icon">
+                                                        <i
+                                                            class="fa-solid fa-ruler-horizontal"
+                                                            aria-hidden="true"></i>
+                                                    </span>
+                                                    <input type="range" step="1"
+                                                        min="8" max="64"
+                                                        value="16" id="length"
+                                                        checked>
+                                                    <span
+                                                        id="length_text">16</span>
+                                                </label>
+
+                                                <label class="panel-block">
+                                                    <span class="panel-icon">
+                                                        <i
+                                                            class="fa-solid fa-arrow-down-1-9"
+                                                            aria-hidden="true"></i>
+                                                    </span>
+                                                    <input type="checkbox" value
+                                                        id="numbers" checked>
+                                                    Numbers
+                                                </label>
+
+                                                <label class="panel-block">
+                                                    <span class="panel-icon">
+                                                        <i
+                                                            class="fa-solid fa-minus"
+                                                            aria-hidden="true"></i>
+                                                    </span>
+                                                    <input type="checkbox" value
+                                                        id="kebab" checked>
+                                                    Kebab style
+                                                </label>
+
+                                                <label class="panel-block">
+                                                    <span class="panel-icon">
+                                                        <i
+                                                            class="fa-solid fa-at"
+                                                            aria-hidden="true"></i>
+                                                    </span>
+                                                    <input type="checkbox" value
+                                                        id="symbols">
+                                                    Symbols
+                                                </label>
+
+                                                <label class="panel-block">
+                                                    <span class="panel-icon">
+                                                        <i class="fa-solid fa-a"
+                                                            aria-hidden="true"></i>
+                                                    </span>
+                                                    <input type="checkbox" value
+                                                        id="lowercase" checked>
+                                                    LowerCase
+                                                </label>
+
+                                                <label class="panel-block">
+                                                    <span class="panel-icon">
+                                                        <i class="fa-solid fa-a"
+                                                            aria-hidden="true"></i>
+                                                    </span>
+                                                    <input type="checkbox" value
+                                                        id="uppercase" checked>
+                                                    UpperCase
+                                                </label>
+
+                                                <label class="panel-block">
+                                                    <span class="panel-icon">
+                                                        <i class="fas fa-book"
+                                                            aria-hidden="true"></i>
+                                                    </span>
+
+                                                    <input type="checkbox" value
+                                                        id="nosimilar">
+                                                    Exclude Similar Characters
+                                                    (i, l, 1, L, o, 0, O)
+                                                </label>
+
+                                                <!-- 
+                                                <label class="panel-block">
+                                <span class="panel-icon">
+                                    <i class="fas fa-book" aria-hidden="true"></i>
+                                </span>
+                                <input type="checkbox" value="" id="noambiguous">
+    
+                                Exclude Ambiguous Characters ({ } [ ] ( ) / \ " ` ~ , ; : .)
+                            </label> -->
+
+                                                <!-- <label class="panel-block">
+                                <span class="panel-icon">
+                                    <i class="fas fa-book" aria-hidden="true"></i>
+                                </span>
+                                <input type="checkbox" value="" id="nodublicate">
+                                No Duplicate Characters
+                            </label>
+    
+    
+                                                <label class="panel-block">
+                                <span class="panel-icon">
+                                    <i class="fas fa-book" aria-hidden="true"></i>
+                                </span>
+                                <input type="checkbox" value="" id="nosequential">
+                                No Sequential Characters
+                            </label> -->
+
+                                                <div class="panel-block">
+
+                                                    <div
+                                                        class="control is-full-width has-icons-left has-icons-right">
+
+                                                        <input class="input"
+                                                            id="sharelink"
+                                                            type="text" value
+                                                            aria-label="readonly input example"
+                                                            readonly>
+                                                        <span
+                                                            class="icon is-small is-left">
+                                                            <i
+                                                                class="fa-solid fa-share-nodes"
+                                                                aria-hidden="true"></i>
+                                                        </span>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="panel-block">
+                                                    <button
+                                                        onclick="buttonClick()"
+                                                        class="button is-link is-outlined is-fullwidth">
+                                                        Generate
+                                                    </button>
+                                                </div>
+
+                                                <!--
+    <div class="panel-block">
+                        <button class="button is-link is-outlined is-fullwidth">
+                            Reset all filters
+                        </button>
+                    </div>
+    -->
+
+                                            </nav>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </section>
+
+                    </div>
+                </section>
+            </div>
+
+            <script>
+        var all_lower = "abcdefghijklmnopqrstuvwxyz";
+        var all_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        var all_numbers = "1234567890";
+        var all_symbols = "!@#$%^&*()";
+        var all_similars = "il1Lo0O";
+        //var all_ambiguous = "({}[]()/\\'\"`~,;:.<>)";
+
+        function buttonClick() {
+            var password = generatePassword();
+            console.log(password);
+            document.getElementById("password").value = password;
+
+        }
+
+
+        var url_string = window.location;
+        var url = new URL(url_string);
+
+        if (url.searchParams != "") {
+            //alert(url.searchParams.has("numbers"));
+            var data_length = url.searchParams.get("length");
+            var data_kebab = url.searchParams.has("kebab");
+            var data_numbers = url.searchParams.has("numbers");
+            var data_symbols = url.searchParams.has("symbols");
+            var data_lowercase = url.searchParams.has("lowercase");
+            var data_uppercase = url.searchParams.has("uppercase");
+            var data_nosimilar = url.searchParams.has("nosimilar");
+
+            if (data_length)
+                document.querySelector('#length').value = data_length;
+
+            if (data_kebab === true)
+                document.getElementById("kebab").checked = true;
+            else document.getElementById("kebab").checked = false;
+
+            if (data_numbers === true)
+                document.getElementById("numbers").checked = true;
+            else document.getElementById("numbers").checked = false;
+
+            if (data_symbols === true)
+                document.getElementById("symbols").checked = true;
+            else document.getElementById("symbols").checked = false;
+
+            if (data_lowercase === true)
+                document.getElementById("lowercase").checked = true;
+            else document.getElementById("lowercase").checked = false;
+
+            if (data_uppercase === true)
+                document.getElementById("uppercase").checked = true;
+            else document.getElementById("uppercase").checked = false;
+
+            if (data_nosimilar == true)
+                document.getElementById("nosimilar").checked = true;
+            else document.getElementById("nosimilar").checked = false;
+        }
+
+        //for (let u = 0; u < 3000; u++) 
+        buttonClick();
+
+        document.getElementById("password").addEventListener("click", function(e) {
+            this.setSelectionRange(0, this.value.length);
+            copyToClipboard(this.value);
+        }, false);
+
+        document.querySelector('#length').addEventListener('change', function() {
+            buttonClick();
+        });
+        document.querySelector('#numbers').addEventListener('change', function() {
+            buttonClick();
+        });
+        document.querySelector('#symbols').addEventListener('change', function() {
+            buttonClick();
+        });
+        document.querySelector('#lowercase').addEventListener('change', function() {
+            buttonClick();
+        });
+        document.querySelector('#uppercase').addEventListener('change', function() {
+            buttonClick();
+        });
+        document.querySelector('#nosimilar').addEventListener('change', function() {
+            buttonClick();
+        });
+        // document.querySelector('#noambiguous').addEventListener('change', function() {
+        //     buttonClick();
+        // });
+        // document.querySelector('#nodublicate').addEventListener('change', function() {
+        //     buttonClick();
+        // });
+        // document.querySelector('#nosequential').addEventListener('change', function() {
+        //     buttonClick();
+        // });
+        document.querySelector('#kebab').addEventListener('change', function() {
+            buttonClick();
+        });
+
+
+        function generatePassword() {
+            var password = "";
+            var ALL = "";
+
+            var length = document.querySelector('#length').value;
+            var numbers = document.querySelector('#numbers').checked;
+            var kebab = document.querySelector('#kebab').checked;
+            var symbols = document.querySelector('#symbols').checked;
+            var lowercase = document.querySelector('#lowercase').checked;
+            var uppercase = document.querySelector('#uppercase').checked;
+            var nosimilar = document.querySelector('#nosimilar').checked;
+            //var noambiguous = document.querySelector('#noambiguous').checked;
+            //var nodublicate = document.querySelector('#nodublicate').checked;
+            //var nosequential = document.querySelector('#nosequential').checked;
+
+
+            var sharelink = [];
+
+
+
+            document.getElementById("length_text").innerHTML = length;
+
+            if (numbers) {
+                ALL += all_numbers;
+                sharelink.push("numbers");
+            }
+            if (kebab) {
+                sharelink.push("kebab");
+            }
+            if (symbols) {
+                ALL += all_symbols;
+                sharelink.push("symbols");
+            }
+            if (lowercase) {
+                ALL += all_lower;
+                sharelink.push("lowercase");
+            }
+            if (uppercase) {
+                ALL += all_upper;
+                sharelink.push("uppercase");
+            }
+            sharelink.push("length=" + length);
+
+            //if (!nodublicate) ALL = ALL + ALL + ALL;
+
+            //console.log(ALL);
+
+            if (nosimilar) {
+
+                sharelink.push("nosimilar");
+                for (let i = 0; i < all_similars.length; i++) {
+                    //console.log("asdsad");
+                    //console.log(all_similars[i]);
+                    ALL = ALL.replace(all_similars[i], "");
+
+                }
+
+            }
+
+
+            document.getElementById("sharelink").value = window.location.origin + window.location.pathname + "?" + sharelink.join("&");
+
+
+
+            //console.log(ALL);
+
+            /*
+                        if (noambiguous) {
+                            for (let i = 0; i < all_ambiguous.length; i++) {
+                                //console.log("asdsad");
+                                //console.log(all_similars[i]);
+                                ALL = ALL.replace(all_ambiguous[i], "");
+
+                            }
+
+                        }*/
+
+
+            ALL = shuffle(ALL);
+
+            /*
+            for (let i = 0; i < length; i++) {
+                //console.log(password);
+                
+            }*/
+            // return password;
+
+            for (let i = 0; i < length; i++) {
+                //console.log(password);
+
+                password += ALL.charAt(randomInteger(0, ALL.length - 1));
+            }
+
+
+
+            if (numbers) {
+                if (!checkInclude(password, all_numbers)) {
+                    console.log(password + " all_numbers yoxdur");
+                    return generatePassword();
+                }
+            }
+
+            if (symbols) {
+                if (!checkInclude(password, all_symbols)) {
+                    console.log(password + " all_symbols yoxdur");
+                    return generatePassword();
+                }
+            }
+
+            if (lowercase) {
+                if (!checkInclude(password, all_lower)) {
+                    console.log(password + " all_lower yoxdur");
+                    return generatePassword();
+                }
+            }
+
+            if (uppercase) {
+                if (!checkInclude(password, all_upper)) {
+                    console.log(password + " all_upper yoxdur");
+                    return generatePassword();
+                }
+            }
+            // if (nosequential) {
+
+            //     for (let i = 0; i < 9; i++) {
+            //         //console.log(password);
+
+            //         password += ALL.charAt(randomInteger(0, length));
+            //     }
+
+
+            //     if (!checkInclude(password, all_upper)) {
+            //         console.log(password + " all_upper yoxdur");
+            //         return generatePassword();
+            //     }
+            // }
+
+
+
+
+            /*
+if (!nosequential)
+{ 
+    for (int i = 0; i<password.length()-1; i++)
+    {
+        char first = password.charAt(i);
+        char second = password.charAt(i+1);
+    
+        if (Character.isDigit(first) && Character.isDigit(second))
+        {
+            int first_int = Integer.parseInt(String.valueOf(first));
+            int second_int = Integer.parseInt(String.valueOf(second));
+    
+            if (second_int-first_int==1)
+                password = password.replaceFirst(String.valueOf(first), "");
+        }
+    }   
+} 
+
+
+    */
+
+            //console.log(ALL);
+
+
+            //if (all_similars.contains(String.valueOf(ALL.charAt(i))))
+            //				ALL = ALL.replace(String.valueOf(ALL.charAt(i)), "");
+
+
+
+
+            //password = password.substring(0, length);
+
+            if (kebab) {
+                var chunks = chunk(password, 4);
+                password = chunks.join("-");
+            }
+
+
+            return password;
+        }
+
+        function checkInclude(password, all) {
+            let b = false;
+            for (let i = 0; i < all.length; i++) {
+                //console.log(password);
+                if (password.includes(all.charAt(i))) {
+                    b = true;
+                }
+            }
+            return b;
+        }
+
+        function randomInteger(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function containsNumber(str) {
+            return /[0-9]/.test(str);
+        }
+
+
+        function chunk(str, size) {
+            return str.match(new RegExp('.{1,' + size + '}', 'g'));
+        }
+
+        function shuffle(string) {
+            var parts = string.split('');
+            for (var i = parts.length; i > 0;) {
+                var random = parseInt(Math.random() * i);
+                var temp = parts[--i];
+                parts[i] = parts[random];
+                parts[random] = temp;
+            }
+            return parts.join('');
+        }
+
+        function copyToClipboard(copyText) {
+            //var copyText = document.getElementById("password");
+
+            /* Select the text field */
+            //copyText.select();
+            //copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+            navigator.clipboard.writeText(copyText);
+
+            //alert("Copied the text: " + copyText);
+        }
+    </script>
+
+        </section>
+
+        <div class="container">
+            <hr>
+        </div>
+
+        <section class="section">
+            <div class="container  is-widescreen">
+                <div class="content ">
+                    <div class="columns">
+                        <div class="column is-8 has-text-left">
+                            <p class="title is-6">© 2013-2024</p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </body>
+
+</html>

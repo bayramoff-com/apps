@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+<html lang="az">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>JSON Debugger | BAYRAMOFF</title>
+        <meta property="description" content>
+        <!--  Essential META Tags -->
+        <meta property="og:title" content="JSON Debugger">
+
+        <meta property="og:type" content="article" />
+        <meta property="og:image"
+            content="storage/webp/full/fb29a857-a838-4872-8f35-6a658e3288e5.webp">
+        <meta property="og:url"
+            content="http://127.0.0.1:8000/web-apps/json-debugger">
+        <meta name="twitter:card" content="summary_large_image">
+
+        <!--  Non-Essential, But Recommended -->
+        <meta property="og:description" content>
+        <meta property="og:site_name" content="Bayramoff">
+        <meta name="twitter:image:alt" content="JSON Debugger">
+
+        <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http://127.0.0.1:8000/web-apps/json-debugger"
+        },
+        "headline": "JSON Debugger",
+        "description": "",
+        "image": "storage/webp/full/fb29a857-a838-4872-8f35-6a658e3288e5.webp",
+        "author": {
+            "@type": "Person",
+            "name": "Shamkhal Bayramov",
+            "url": "https://bayramoff.com/"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Bayramoff",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http://127.0.0.1:8000../assets/bayramoff.svg"
+            }
+        },
+      
+        "datePublished": "2022-12-08", 
+        "dateModified": "2022-12-08"
+    }
+</script>
+        <link rel="apple-touch-icon" sizes="180x180"
+            href="../assets/ico/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32"
+            href="../assets/ico/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16"
+            href="../assets/ico/favicon-16x16.png">
+        <link rel="manifest" href="../assets/ico/site.webmanifest">
+        <link rel="mask-icon" href="../assets/ico/safari-pinned-tab.svg"
+            color="#5bbad5">
+        <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+        <meta name="msapplication-TileColor" content="#603cba">
+        <meta name="msapplication-config" content="../assets/ico/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="stylesheet" href="../assets/css/bulma.min.css">
+        <script src="https://kit.fontawesome.com/51708522bd.js"
+            crossorigin="anonymous"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+            rel="stylesheet">
+
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+        * {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+
+    </head>
+
+    <body>
+        <nav class="navbar is-fixed-top" role="navigation"
+            aria-label="main navigation">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="https://bayramoff.com">
+                        <img style=" min-height: 48px;" alt="bayramoff logo"
+                            src="../assets/bayramoff.svg" />
+                    </a>
+
+                    <a role="button" class="navbar-burger" aria-label="menu"
+                        aria-expanded="false" data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+
+            </div>
+        </nav>
+
+        <section class="section">
+            <div class="container is-widescreen">
+                <section class="section">
+                    <div class="container">
+
+                        <div class="columns ">
+                            <div
+                                class="column is-half is-offset-one-quarter">
+
+                                <div class="content is-large">
+                                    <h2
+                                        class="has-text-weight-bold">Telegram
+                                        Bot Token Debugger</h2>
+                                    <nav class="panel is-4">
+                                        <p class="panel-heading">
+                                            Enter Telegram Token
+                                        </p>
+
+                                        <div class="panel-block">
+                                            <p
+                                                class="control has-icons-left">
+                                                <input class="input"
+                                                    id="token"
+                                                    name="token"
+                                                    type="text"
+                                                    placeholder="0123456789:DFANUSAD_ASDNsdn3_Ecz3KgrOfvDmzE"
+                                                    required>
+                                                <span
+                                                    class="icon is-left">
+                                                    <i
+                                                        class="fas fa-search"
+                                                        aria-hidden="true"></i>
+                                                </span>
+                                            </p>
+                                        </div>
+
+                                        <div class="columns ">
+                                            <div class="column">
+                                                <div
+                                                    class="panel-block">
+                                                    <p
+                                                        class="control has-icons-left">
+                                                        <input
+                                                            class="input"
+                                                            id="chat_id"
+                                                            name="chat_id"
+                                                            type="text"
+                                                            placeholder="chat_id"
+                                                            required>
+                                                        <span
+                                                            class="icon is-left">
+                                                            <i
+                                                                class="fas fa-search"
+                                                                aria-hidden="true"></i>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="column">
+                                                <div
+                                                    class="panel-block">
+                                                    <p
+                                                        class="control has-icons-left">
+                                                        <input
+                                                            class="input"
+                                                            id="user_id"
+                                                            name="user_id"
+                                                            type="text"
+                                                            placeholder="user_id | from_id"
+                                                            required>
+                                                        <span
+                                                            class="icon is-left">
+                                                            <i
+                                                                class="fas fa-search"
+                                                                aria-hidden="true"></i>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="panel-block">
+                                            <p
+                                                class="control has-icons-left">
+                                                <label class="checkbox">
+                                                    <input
+                                                        id="target_tab"
+                                                        type="checkbox">
+                                                    open in new tab
+                                                </label>
+                                            </p>
+                                        </div>
+
+                                        <div class="panel-block">
+                                            <div
+                                                class="field is-grouped is-grouped-multiline">
+                                                <p class="control">
+                                                    <a
+                                                        onclick="getApi('getWebhookInfo')"
+                                                        class="button">
+                                                        getWebhookInfo
+                                                    </a>
+                                                </p>
+                                                <p class="control">
+                                                    <a
+                                                        onclick="getApi('getMe')"
+                                                        class="button">
+                                                        getMe
+                                                    </a>
+                                                </p>
+                                                <p class="control">
+                                                    <a
+                                                        onclick="getApi('getUpdates')"
+                                                        class="button">
+                                                        getUpdates
+                                                    </a>
+                                                </p>
+                                                <p class="control">
+                                                    <a
+                                                        onclick="getApi('getChatAdministrators')"
+                                                        class="button">
+                                                        getChatAdministrators
+                                                    </a>
+                                                </p>
+                                                <p class="control">
+                                                    <a
+                                                        onclick="getApi('getChatMemberCount')"
+                                                        class="button">
+                                                        getChatMemberCount
+                                                    </a>
+                                                </p>
+                                                <p class="control">
+                                                    <a
+                                                        onclick="getApi('getChatMember')"
+                                                        class="button">
+                                                        getChatMember
+                                                    </a>
+                                                </p>
+
+                                            </div>
+                                        </div>
+                                        <div class="panel-block">
+                                            <progress id="progress"
+                                                class="progress is-small is-primary is-hidden"
+                                                max="100">15%</progress>
+                                        </div>
+                                        <div class="panel-block">
+                                            <textarea
+                                                class="textarea is-info"
+                                                id="telegram_result"
+                                                readonly
+                                                placeholder="result"
+                                                rows="20"></textarea>
+                                            <!-- <iframe name="telegram" style="width: 100%; height: auto;"></iframe> -->
+                                        </div>
+
+                                    </nav>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+
+        </section>
+
+        <div class="container">
+            <hr>
+        </div>
+
+        <section class="section">
+            <div class="container  is-widescreen">
+                <div class="content ">
+                    <div class="columns">
+                        <div class="column is-8 has-text-left">
+                            <p class="title is-6">© 2013-2024</p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </body>
+
+</html>
