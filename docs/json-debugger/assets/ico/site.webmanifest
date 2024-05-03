@@ -1,14 +1,15 @@
 {
     "name": "JSON Debugger",
     "short_name": "JSON Debugger",
+    "start_url": "https://apps.bayramoff.com/json-debugger/",
     "icons": [
         {
-            "src": "/json-debugger/assets/android-chrome-192x192.png",
+            "src": "/assets/android-chrome-192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "/json-debugger/assets/android-chrome-512x512.png",
+            "src": "/assets/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
