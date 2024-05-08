@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+<html lang="az">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>JSON Debugger | BAYRAMOFF</title>
+        <meta property="description" content>
+        <!--  Essential META Tags -->
+        <meta property="og:title" content="JSON Debugger">
+
+        <meta property="og:type" content="article" />
+        <meta property="og:image"
+            content="storage/webp/full/fb29a857-a838-4872-8f35-6a658e3288e5.webp">
+        <meta property="og:url"
+            content="http://127.0.0.1:8000/web-apps/json-debugger">
+        <meta name="twitter:card" content="summary_large_image">
+
+        <!--  Non-Essential, But Recommended -->
+        <meta property="og:description" content>
+        <meta property="og:site_name" content="Bayramoff">
+        <meta name="twitter:image:alt" content="JSON Debugger">
+
+        <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http://127.0.0.1:8000/web-apps/json-debugger"
+        },
+        "headline": "JSON Debugger",
+        "description": "",
+        "image": "storage/webp/full/fb29a857-a838-4872-8f35-6a658e3288e5.webp",
+        "author": {
+            "@type": "Person",
+            "name": "Shamkhal Bayramov",
+            "url": "https://bayramoff.com/"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Bayramoff",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http://127.0.0.1:8000assets/bayramoff.svg"
+            }
+        },
+      
+        "datePublished": "2022-12-08", 
+        "dateModified": "2022-12-08"
+    }
+</script>
+        <link rel="apple-touch-icon" sizes="180x180"
+            href="assets/ico/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32"
+            href="assets/ico/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16"
+            href="assets/ico/favicon-16x16.png">
+        <link rel="manifest" href="assets/manifest.json">
+        <link rel="mask-icon" href="assets/ico/safari-pinned-tab.svg"
+            color="#5bbad5">
+        <link rel="shortcut icon" href="assets/ico/favicon.ico">
+        <meta name="msapplication-TileColor" content="#00aba9">
+        <meta name="msapplication-config"
+            content="assets/ico/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="stylesheet" href="assets/css/bulma.min.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+            rel="stylesheet">
+
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+        * {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+       
+        h1, h2 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+     
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .policy-output {
+            background-color: white; 
+            border: 1px solid #ccc;
+        }
+    </style>
+
+    </head>
+
+    <body>
+        <nav class="navbar is-fixed-top" role="navigation"
+            aria-label="main navigation">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="https://bayramoff.com">
+                        <img style=" min-height: 48px;" alt="bayramoff logo"
+                            src="../assets/bayramoff.svg" />
+                    </a>
+
+                    <a role="button" class="navbar-burger" aria-label="menu"
+                        aria-expanded="false" data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+
+            </div>
+        </nav>
+
+        <section class="section">
+            <div class="container is-widescreen">
+                <section class="section">
+                    <div class="container">
+                        <div class="container">
+
+                            <div class="content is-large">
+                                <h2 class="has-text-weight-bold">Privacy Policy
+                                    Generator</h2>
+
+                                <p>Fill in the information below to generate a
+                                    privacy policy for your app.</p>
+
+                                <div class="columns">
+                                    <div class="column">
+                                        <label for="app-name">App Name:</label>
+                                        <input type="text" class="input"
+                                            id="app-name">
+
+                                        <label for="app-link">App Link:</label>
+                                        <input type="text" class="input"
+                                            id="app-link">
+
+                                        <label for="contact-email">Contact
+                                            Email:</label>
+                                        <input type="text" class="input"
+                                            id="contact-email">
+
+                                        <label for="app-type">App Type:</label>
+                                        <select id="app-type">
+                                            <option
+                                                value="Android">Android</option>
+                                            <option value="Web App">Web
+                                                App</option>
+                                            <option
+                                                value="Chrome Extension">Chrome
+                                                Extension</option>
+                                            <option value="iOS">iOS</option>
+                                            <option
+                                                value="Telegram Bot">Telegram
+                                                Bot</option>
+                                        </select>
+
+                                        <label for="other-info">Other Important
+                                            Information:</label>
+                                        <textarea class="textarea"
+                                            id="other-info" rows="4"></textarea>
+
+                                        <button
+                                            onclick="generatePolicy()">Generate
+                                            Policy</button>
+
+                                        <textarea style="width:100%" rows="30"
+                                            class="textarea"
+                                            id="policy-output-html"
+                                            readonly></textarea>
+
+                                    </div>
+                                    <div class="column">
+
+                                        <div class="policy-output"
+                                            id="policy-output"></div>
+                                    </div>
+                                </div>
+
+                                <script>
+                                        function generatePolicy() {
+                                            const appName = document.getElementById("app-name").value;
+                                            const appLink = document.getElementById("app-link").value;
+                                            const contactEmail = document.getElementById("contact-email").value;
+                                            const appType = document.getElementById("app-type").value;
+                                            const otherInfo = document.getElementById("other-info").value;
+                                
+                                            const policyTemplate = `
+                                                <h2>Privacy Policy for ${appName}</h2>
+                                                <p>${appName} is committed to protecting your privacy. This Privacy Policy explains how your personal information is collected, used, and disclosed by ${appName}, a ${appType}.</p>
+                                                <h3>Information We Collect</h3>
+                                                <p>We may collect personal information such as your name, email address, and other information you provide when using our application.</p>
+                                                <h3>How We Use Information</h3>
+                                                <p>We use the information we collect to provide, maintain, and improve our services, including:</p>
+                                                <ul>
+                                                    <li>To communicate with you</li>
+                                                    <li>To provide customer support</li>
+                                                    <li>To monitor usage and analyze trends</li>
+                                                </ul>
+                                                <h3>Links to Other Sites</h3>
+                                                <p>Our application may contain links to other sites. If you click on a third-party link, you will be directed to that site. We strongly advise you to review the Privacy Policy of every site you visit. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.</p>
+                                                <h3>Contact Us</h3>
+                                                <p>If you have any questions about this Privacy Policy, you can contact us via email at ${contactEmail}.</p>
+                                                ${otherInfo ? `<h3>Additional Information</h3><p>${otherInfo}</p>` : ''}
+                                            `;
+                                
+                                            document.getElementById("policy-output").innerHTML = policyTemplate;
+                                            document.getElementById("policy-output-html").innerHTML = policyTemplate;
+                                        }
+                                    </script>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+
+        </section>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Get all "navbar-burger" elements
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+            // Add a click event on each of them
+            $navbarBurgers.forEach(el => {
+                el.addEventListener('click', () => {
+
+                    // Get the target from the "data-target" attribute
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+
+                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+
+                });
+            });
+
+        });
+    </script>
+
+        <div class="container">
+            <hr>
+        </div>
+
+        <section class="section">
+            <div class="container  is-widescreen">
+                <div class="content ">
+                    <div class="columns">
+                        <div class="column is-8 has-text-left">
+                            <p class="title is-6">© 2013-2024</p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </body>
+
+</html>
