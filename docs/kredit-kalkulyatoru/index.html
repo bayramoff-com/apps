@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang="az">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>JSON Debugger | BAYRAMOFF</title>
+        <meta property="description" content>
+        <!--  Essential META Tags -->
+        <meta property="og:title" content="JSON Debugger">
+
+        <meta property="og:type" content="article" />
+        <meta property="og:image"
+            content="storage/webp/full/fb29a857-a838-4872-8f35-6a658e3288e5.webp">
+        <meta property="og:url"
+            content="http://127.0.0.1:8000/web-apps/json-debugger">
+        <meta name="twitter:card" content="summary_large_image">
+
+        <!--  Non-Essential, But Recommended -->
+        <meta property="og:description" content>
+        <meta property="og:site_name" content="Bayramoff">
+        <meta name="twitter:image:alt" content="JSON Debugger">
+
+        <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http://127.0.0.1:8000/web-apps/json-debugger"
+        },
+        "headline": "JSON Debugger",
+        "description": "",
+        "image": "storage/webp/full/fb29a857-a838-4872-8f35-6a658e3288e5.webp",
+        "author": {
+            "@type": "Person",
+            "name": "Shamkhal Bayramov",
+            "url": "https://bayramoff.com/"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Bayramoff",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http://127.0.0.1:8000assets/bayramoff.svg"
+            }
+        },
+      
+        "datePublished": "2022-12-08", 
+        "dateModified": "2022-12-08"
+    }
+</script>
+        <link rel="apple-touch-icon" sizes="180x180"
+            href="assets/ico/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32"
+            href="assets/ico/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16"
+            href="assets/ico/favicon-16x16.png">
+        <link rel="manifest" href="assets/manifest.json">
+        <link rel="mask-icon" href="assets/ico/safari-pinned-tab.svg"
+            color="#5bbad5">
+        <link rel="shortcut icon" href="assets/ico/favicon.ico">
+        <meta name="msapplication-TileColor" content="#00aba9">
+        <meta name="msapplication-config" content="assets/ico/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="stylesheet" href="assets/css/bulma.min.css">
+       
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+            rel="stylesheet">
+
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+        * {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+
+    </head>
+
+    <body>
+        <nav class="navbar is-fixed-top" role="navigation"
+            aria-label="main navigation">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="https://bayramoff.com">
+                        <img style=" min-height: 48px;" alt="bayramoff logo"
+                            src="/assets/bayramoff.svg" />
+                    </a>
+
+                    <a role="button" class="navbar-burger" aria-label="menu"
+                        aria-expanded="false" data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+
+            </div>
+        </nav>
+
+        <section class="section">
+            <div class="container is-widescreen">
+                <section class="section">
+                    <div class="container">
+                        <div class="container">
+
+                            <div class="content is-large">
+                                <h2 class="has-text-weight-bold">Kredit Hesablama</h2>
+                                <div class="columns ">
+                                    <div class="column">
+
+                                        <label for="months">Months:</label>
+                                        <input type="number" id="months" name="months" required><br><br>
+                            
+                                        <label for="amount">Credit Amount:</label>
+                                        <input type="number" id="amount" name="amount" required><br><br>
+                            
+                                        <label for="percentage">Annual Percentage Rate (APR):</label>
+                                        <input type="number" id="percentage" name="percentage" step="0.01"
+                                            required><br><br>
+                            
+                                        <input type="button" value="Calculate" onclick="calculatePayment()">
+
+                                    </div>
+                                    <div class="column">
+
+                                        <div class="block">
+                                            <textarea class="textarea is-info"
+                                                id="result" readonly
+                                                readonly="readonly"
+                                                placeholder="json"
+                                                rows="20"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+
+        </section>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Get all "navbar-burger" elements
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+            // Add a click event on each of them
+            $navbarBurgers.forEach(el => {
+                el.addEventListener('click', () => {
+
+                    // Get the target from the "data-target" attribute
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+
+                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+
+                });
+            });
+
+        });
+    </script>
+ 
+
+        <div class="container">
+            <hr>
+        </div>
+
+        <section class="section">
+            <div class="container  is-widescreen">
+                <div class="content ">
+                    <div class="columns">
+                        <div class="column is-8 has-text-left">
+                            <p class="title is-6">© 2013-2024</p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        
+        <script>
+            function calculatePayment() {
+        const months = document.getElementById('months').value;
+        const amount = document.getElementById('amount').value;
+        const percentage = document.getElementById('percentage').value;
+    
+        // Convert annual percentage rate to monthly rate
+        const monthlyRate = (percentage / 100) / 12;
+    
+        // Calculate annuity payment using the formula
+        const payment = (amount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -months));
+    
+        // Display the result
+        document.getElementById('result').innerText = payment.toFixed(2);
+    }
+    
+    
+        </script>
+
+
+
+    </body>
+
+</html>
