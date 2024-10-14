@@ -4,22 +4,22 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>JSON Debugger | BAYRAMOFF</title>
+        <title>Telegram Bot Token Debugger BAYRAMOFF</title>
         <meta property="description" content>
         <!--  Essential META Tags -->
-        <meta property="og:title" content="JSON Debugger">
+        <meta property="og:title" content="Telegram Bot Token Debugger">
 
         <meta property="og:type" content="article" />
         <meta property="og:image"
-            content="storage/webp/full/fb29a857-a838-4872-8f35-6a658e3288e5.webp">
+            content="https://bayramoff.com/storage/webp/full/fb29a857-a838-4872-8f35-6a658e3288e5.webp">
         <meta property="og:url"
-            content="http://127.0.0.1:8000/web-apps/json-debugger">
+            content="http://apps.bayramoff.com/web-apps/json-debugger">
         <meta name="twitter:card" content="summary_large_image">
 
         <!--  Non-Essential, But Recommended -->
         <meta property="og:description" content>
         <meta property="og:site_name" content="Bayramoff">
-        <meta name="twitter:image:alt" content="JSON Debugger">
+        <meta name="twitter:image:alt" content="Telegram Bot Token Debugger">
 
         <script type="application/ld+json">
     {
@@ -27,11 +27,11 @@
         "@type": "Article",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "http://127.0.0.1:8000/web-apps/json-debugger"
+            "@id": "http://apps.bayramoff.com/web-apps/json-debugger"
         },
-        "headline": "JSON Debugger",
+        "headline": "Telegram Bot Token Debugger",
         "description": "",
-        "image": "storage/webp/full/fb29a857-a838-4872-8f35-6a658e3288e5.webp",
+        "image": "https://bayramoff.com/storage/webp/full/fb29a857-a838-4872-8f35-6a658e3288e5.webp",
         "author": {
             "@type": "Person",
             "name": "Shamkhal Bayramov",
@@ -42,7 +42,7 @@
             "name": "Bayramoff",
             "logo": {
                 "@type": "ImageObject",
-                "url": "http://127.0.0.1:8000../assets/bayramoff.svg"
+                "url": "http://apps.bayramoff.com/assets/bayramoff.svg"
             }
         },
       
@@ -56,12 +56,13 @@
             href="../assets/ico/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16"
             href="../assets/ico/favicon-16x16.png">
-        <link rel="manifest" href="../assets/ico/site.webmanifest">
+        <link rel="manifest" href="site.webmanifest">
         <link rel="mask-icon" href="../assets/ico/safari-pinned-tab.svg"
             color="#5bbad5">
         <link rel="shortcut icon" href="../assets/ico/favicon.ico">
         <meta name="msapplication-TileColor" content="#603cba">
-        <meta name="msapplication-config" content="../assets/ico/browserconfig.xml">
+        <meta name="msapplication-config"
+            content="../assets/ico/browserconfig.xml">
         <meta name="theme-color" content="#ffffff">
 
         <link rel="stylesheet" href="../assets/css/bulma.min.css">
@@ -89,7 +90,8 @@
             aria-label="main navigation">
             <div class="container">
                 <div class="navbar-brand">
-                    <a class="navbar-item" href="https://bayramoff.com">
+                    <a class="navbar-item"
+                        href="https://bayramoff.com/apps/categories/veb-tetbiqler">
                         <img style=" min-height: 48px;" alt="bayramoff logo"
                             src="../assets/bayramoff.svg" />
                     </a>
@@ -274,16 +276,50 @@
 
         </section>
 
-        <div class="container">
-            <hr>
-        </div>
-
         <section class="section">
             <div class="container  is-widescreen">
                 <div class="content ">
                     <div class="columns">
                         <div class="column is-8 has-text-left">
-                            <p class="title is-6">© 2013-2024</p>
+                            <p class="title is-6">© 2013 - 2024 | <a
+                                    href="https://bayramoff.com/pages/donate">Müəllifə
+                                    dəstək</a></p>
+                        </div>
+
+                        <div class="column is-2 has-text-right">
+                            <!-- <p class="title is-4">Discover</p> -->
+                            <p class="subtitle is-6">
+                                <a target="_blank" rel="noopener"
+                                    href="https://t.me/bayramoff_com">
+                                    Telegram <i class="fa-brands fa-telegram"
+                                        aria-hidden="true"></i>
+                                </a>
+                            </p>
+                            <p class="subtitle is-6">
+                                <a target="_blank" rel="noopener"
+                                    href="https://kofe.al/@bayramoff-com">
+                                    Kofe.al <i class="fa-solid fa-mug-hot"
+                                        aria-hidden="true"></i>
+                                </a>
+                            </p>
+
+                        </div>
+
+                        <div class="column is-2 has-text-right">
+                            <!-- <p class="title is-4">Discover</p> -->
+                            <p class="subtitle is-6">
+                                <a href="https://bayramoff.com/sitemap.xml">
+                                    Sitemap <i class="fa-solid fa-sitemap"
+                                        aria-hidden="true"></i>
+                                </a>
+                            </p>
+
+                            <p class="subtitle is-6">
+                                <a href="https://bayramoff.com/rss.xml">
+                                    RSS <i class="fa-solid fa-rss"
+                                        aria-hidden="true"></i>
+                                </a>
+                            </p>
                         </div>
 
                     </div>
@@ -291,6 +327,67 @@
                 </div>
             </div>
         </section>
+
+        <script>
+            function getApi(path) {
+        
+        
+                var target_tab = document.querySelector('#target_tab').checked;
+                var token = document.getElementById("token").value;
+                var chat_id = document.getElementById("chat_id").value;
+                var user_id = document.getElementById("user_id").value;
+        
+                if (token == "") {
+                    //alert("The form is incomplete");
+                    // return false;
+                }
+        
+                switch (path) {
+                    case "getChatAdministrators":
+                        var url = "https://api.telegram.org/bot" + token + "/" + path + "?chat_id=" + chat_id;
+                        break;
+                    case "getChatMemberCount":
+                        var url = "https://api.telegram.org/bot" + token + "/" + path + "?chat_id=" + chat_id;
+                        break;
+                    case "getChatMember":
+                        var url = "https://api.telegram.org/bot" + token + "/" + path + "?chat_id=" + chat_id + "&user_id=" + user_id;
+                        break;
+                    default:
+                        var url = "https://api.telegram.org/bot" + token + "/" + path;
+                        break;
+                }
+                if (target_tab) window.open(url, 'telegram');
+                else sendQuery(url);
+        
+            }
+        
+            function sendQuery(url) {
+    document.getElementById("telegram_result").innerHTML = "";
+    document.getElementById("progress").classList.remove("is-hidden");
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState === 4) {
+            document.getElementById("progress").classList.add("is-hidden");
+
+            try {
+                    var obj = JSON.parse(this.responseText);
+                    var json = JSON.stringify(obj, null, "\t");
+                    document.getElementById("telegram_result").innerHTML = json;
+                } catch (e) {
+                    document.getElementById("telegram_result").innerHTML = "Error parsing JSON.";
+                    console.error("Parsing error:", e);
+                }
+
+           
+        }
+    };
+
+    xhttp.open("GET", url, true);
+    xhttp.send();
+}
+
+        </script>
 
     </body>
 
