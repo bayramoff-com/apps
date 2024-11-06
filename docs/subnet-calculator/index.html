@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html lang="az">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Subnet Calculator | BAYRAMOFF</title>
+        <meta property="description" content>
+        <!--  Essential META Tags -->
+        <meta property="og:title" content="Subnet Calculator">
+
+        <meta property="og:type" content="article" />
+        <meta property="og:image"
+            content="https://bayramoff.com/storage/webp/full/fb29a857-a838-4872-8f35-6a658e3288e5.webp">
+        <meta property="og:url"
+            content="http://apps.bayramoff.com/web-apps/json-debugger">
+        <meta name="twitter:card" content="summary_large_image">
+
+        <!--  Non-Essential, But Recommended -->
+        <meta property="og:description" content>
+        <meta property="og:site_name" content="Bayramoff">
+        <meta name="twitter:image:alt" content="Subnet Calculator">
+
+        <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http://apps.bayramoff.com/web-apps/json-debugger"
+        },
+        "headline": "Subnet Calculator",
+        "description": "",
+        "image": "https://bayramoff.com/storage/webp/full/fb29a857-a838-4872-8f35-6a658e3288e5.webp",
+        "author": {
+            "@type": "Person",
+            "name": "Shamkhal Bayramov",
+            "url": "https://bayramoff.com/"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Bayramoff",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http://apps.bayramoff.com/assets/bayramoff.svg"
+            }
+        },
+      
+        "datePublished": "2022-12-08", 
+        "dateModified": "2022-12-08"
+    }
+</script>
+
+<link rel="icon" type="image/png" href="ico/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="ico/favicon.svg" />
+<link rel="shortcut icon" href="ico/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="ico/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Subnet Calc" />
+<link rel="manifest" href="ico/site.webmanifest" />
+
+        <link rel="stylesheet" href="../assets/css/bulma.min.css">
+        <script src="https://kit.fontawesome.com/51708522bd.js"
+            crossorigin="anonymous"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+            rel="stylesheet">
+
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+        * {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+
+    </head>
+
+    <body>
+        <nav class="navbar " role="navigation"
+            aria-label="main navigation">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item"
+                        href="https://bayramoff.com/apps/categories/veb-tetbiqler">
+                        <img style=" min-height: 48px;" alt="bayramoff logo"
+                            src="../assets/bayramoff.svg" />
+                    </a>
+
+                    <a role="button" class="navbar-burger" aria-label="menu"
+                        aria-expanded="false" data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+
+            </div>
+        </nav>
+
+        <section class="section">
+            <div class="container">
+                <h1 class="title">Subnet Calculator (IP List)</h1>
+                <p class="subtitle">Enter a subnet in CIDR notation (e.g.,
+                    122.141.40.0/22):</p>
+
+                <div class="field">
+                    <div class="control">
+                        <input class="input" type="text" id="subnet"
+                            placeholder="Enter subnet (e.g., 122.141.40.0/22)"
+                            oninput="debounceGenerateIPList()">
+                    </div>
+                </div>
+
+                <div class="field has-addons">
+                    <div class="control is-expanded">
+                        <input class="input" type="text" id="search"
+                            placeholder="Search IP..." oninput="filterIPs()"
+                            disabled>
+                    </div>
+                    <div class="control">
+                        <button class="button is-light" id="clearSearchButton"
+                            onclick="clearSearch()" disabled>Clear
+                            Search</button>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="table is-fullwidth is-striped is-hoverable"
+                        id="ipTable">
+                        <tbody>
+                            <!-- IP addresses will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <script>
+        function ipToLong(ip) {
+            return ip.split('.').reduce((acc, octet) => (acc << 8) + parseInt(octet, 10), 0) >>> 0;
+        }
+
+        function longToIp(long) {
+            return [(long >>> 24) & 255, (long >>> 16) & 255, (long >>> 8) & 255, long & 255].join('.');
+        }
+
+        function isValidSubnet(ipAddress, cidr) {
+            // Check if CIDR is within acceptable range (e.g., /8 to /30)
+            return cidr >= 8 && cidr <= 30 && /^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$/.test(ipAddress);
+        }
+
+        function generateIPList() {
+            const subnetInput = document.getElementById('subnet').value;
+            const ipTableBody = document.getElementById('ipTable').querySelector('tbody');
+            const searchInput = document.getElementById('search');
+            const clearSearchButton = document.getElementById('clearSearchButton');
+
+            ipTableBody.innerHTML = '';
+            searchInput.value = '';
+
+            try {
+                const [ipAddress, cidr] = subnetInput.split('/');
+                if (!isValidSubnet(ipAddress, parseInt(cidr))) {
+                    throw new Error("Invalid CIDR notation");
+                }
+
+                const startIp = ipToLong(ipAddress);
+                const mask = (1 << (32 - cidr)) - 1;
+                const networkStart = startIp & ~mask;
+                const networkEnd = networkStart + mask;
+
+                for (let i = networkStart; i <= networkEnd; i++) {
+                    const row = document.createElement('tr');
+                    const cell = document.createElement('td');
+                    cell.textContent = longToIp(i);
+                    row.appendChild(cell);
+                    ipTableBody.appendChild(row);
+                }
+
+                searchInput.disabled = false;
+                clearSearchButton.disabled = false;
+            } catch (error) {
+                const row = document.createElement('tr');
+                const cell = document.createElement('td');
+                cell.textContent = 'Invalid subnet. Please enter a valid subnet in CIDR notation (e.g., 122.141.40.0/22).';
+                cell.classList.add('has-text-danger');
+                row.appendChild(cell);
+                ipTableBody.appendChild(row);
+
+                searchInput.disabled = true;
+                clearSearchButton.disabled = true;
+            }
+        }
+
+        let debounceTimeout;
+        function debounceGenerateIPList() {
+            clearTimeout(debounceTimeout);
+            debounceTimeout = setTimeout(generateIPList, 300);
+        }
+
+        function filterIPs() {
+            const searchInput = document.getElementById('search').value.toLowerCase();
+            const rows = document.getElementById('ipTable').querySelectorAll('tbody tr');
+
+            rows.forEach(row => {
+                const cell = row.cells[0];
+                row.style.display = cell && cell.textContent.toLowerCase().includes(searchInput) ? '' : 'none';
+            });
+        }
+
+        function clearSearch() {
+            document.getElementById('search').value = '';
+            filterIPs();
+        }
+    </script>
+
+        <section class="section">
+            <div class="container  is-widescreen">
+                <div class="content ">
+                    <div class="columns">
+                        <div class="column is-8 has-text-left">
+                            <p class="title is-6">2024 © Bayramoff
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </body>
+    </html>
