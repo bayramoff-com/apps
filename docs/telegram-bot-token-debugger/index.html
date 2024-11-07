@@ -86,7 +86,7 @@
     </head>
 
     <body>
-        <nav class="navbar is-fixed-top" role="navigation"
+        <nav class="navbar " role="navigation"
             aria-label="main navigation">
             <div class="container">
                 <div class="navbar-brand">
@@ -108,218 +108,125 @@
         </nav>
 
         <section class="section">
-            <div class="container is-widescreen">
-                <section class="section">
-                    <div class="container">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-half ">
 
-                        <div class="columns ">
-                            <div
-                                class="column is-half is-offset-one-quarter">
+                        <h2
+                            class="title has-text-weight-bold has-text-centered">Telegram
+                            Bot Token Debugger</h2>
 
-                                <div class="content is-large">
-                                    <h2
-                                        class="has-text-weight-bold">Telegram
-                                        Bot Token Debugger</h2>
-                                    <nav class="panel is-4">
-                                        <p class="panel-heading">
-                                            Enter Telegram Token
-                                        </p>
-
-                                        <div class="panel-block">
-                                            <p
-                                                class="control has-icons-left">
-                                                <input class="input"
-                                                    id="token"
-                                                    name="token"
-                                                    type="text"
-                                                    placeholder="0123456789:DFANUSAD_ASDNsdn3_Ecz3KgrOfvDmzE"
-                                                    required>
-                                                <span
-                                                    class="icon is-left">
-                                                    <i
-                                                        class="fas fa-search"
-                                                        aria-hidden="true"></i>
-                                                </span>
-                                            </p>
-                                        </div>
-
-                                        <div class="columns ">
-                                            <div class="column">
-                                                <div
-                                                    class="panel-block">
-                                                    <p
-                                                        class="control has-icons-left">
-                                                        <input
-                                                            class="input"
-                                                            id="chat_id"
-                                                            name="chat_id"
-                                                            type="text"
-                                                            placeholder="chat_id"
-                                                            required>
-                                                        <span
-                                                            class="icon is-left">
-                                                            <i
-                                                                class="fas fa-search"
-                                                                aria-hidden="true"></i>
-                                                        </span>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="column">
-                                                <div
-                                                    class="panel-block">
-                                                    <p
-                                                        class="control has-icons-left">
-                                                        <input
-                                                            class="input"
-                                                            id="user_id"
-                                                            name="user_id"
-                                                            type="text"
-                                                            placeholder="user_id | from_id"
-                                                            required>
-                                                        <span
-                                                            class="icon is-left">
-                                                            <i
-                                                                class="fas fa-search"
-                                                                aria-hidden="true"></i>
-                                                        </span>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="panel-block">
-                                            <p
-                                                class="control has-icons-left">
-                                                <label class="checkbox">
-                                                    <input
-                                                        id="target_tab"
-                                                        type="checkbox">
-                                                    open in new tab
-                                                </label>
-                                            </p>
-                                        </div>
-
-                                        <div class="panel-block">
-                                            <div
-                                                class="field is-grouped is-grouped-multiline">
-                                                <p class="control">
-                                                    <a
-                                                        onclick="getApi('getWebhookInfo')"
-                                                        class="button">
-                                                        getWebhookInfo
-                                                    </a>
-                                                </p>
-                                                <p class="control">
-                                                    <a
-                                                        onclick="getApi('getMe')"
-                                                        class="button">
-                                                        getMe
-                                                    </a>
-                                                </p>
-                                                <p class="control">
-                                                    <a
-                                                        onclick="getApi('getUpdates')"
-                                                        class="button">
-                                                        getUpdates
-                                                    </a>
-                                                </p>
-                                                <p class="control">
-                                                    <a
-                                                        onclick="getApi('getChatAdministrators')"
-                                                        class="button">
-                                                        getChatAdministrators
-                                                    </a>
-                                                </p>
-                                                <p class="control">
-                                                    <a
-                                                        onclick="getApi('getChatMemberCount')"
-                                                        class="button">
-                                                        getChatMemberCount
-                                                    </a>
-                                                </p>
-                                                <p class="control">
-                                                    <a
-                                                        onclick="getApi('getChatMember')"
-                                                        class="button">
-                                                        getChatMember
-                                                    </a>
-                                                </p>
-
-                                            </div>
-                                        </div>
-                                        <div class="panel-block">
-                                            <progress id="progress"
-                                                class="progress is-small is-primary is-hidden"
-                                                max="100">15%</progress>
-                                        </div>
-                                        <div class="panel-block">
-                                            <textarea
-                                                class="textarea is-info"
-                                                id="telegram_result"
-                                                readonly
-                                                placeholder="result"
-                                                rows="20"></textarea>
-                                            <!-- <iframe name="telegram" style="width: 100%; height: auto;"></iframe> -->
-                                        </div>
-
-                                    </nav>
-
-                                </div>
-
+                        <div class="field">
+                            <label class="label">Enter Telegram
+                                Token</label>
+                            <div class="control has-icons-left">
+                                <input class="input" id="token" name="token"
+                                    type="text"
+                                    placeholder="0123456789:DFANUSAD_ASDNsdn3_Ecz3KgrOfvDmzE"
+                                    required>
+                                <span class="icon is-left">
+                                    <i class="fas fa-key"></i>
+                                </span>
                             </div>
                         </div>
 
-                    </div>
-                </section>
-            </div>
+                        <div class="columns">
+                            <div class="column">
+                                <div class="field">
+                                    <label class="label">Chat ID</label>
+                                    <div class="control has-icons-left">
+                                        <input class="input" id="chat_id"
+                                            name="chat_id" type="text"
+                                            placeholder="chat_id" required>
+                                        <span class="icon is-left">
+                                            <i class="fas fa-user"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="field">
+                                    <label class="label">User ID | From
+                                        ID</label>
+                                    <div class="control has-icons-left">
+                                        <input class="input" id="user_id"
+                                            name="user_id" type="text"
+                                            placeholder="user_id | from_id"
+                                            required>
+                                        <span class="icon is-left">
+                                            <i
+                                                class="fas fa-user-friends"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="field">
+                            <div class="control">
+                                <label class="checkbox">
+                                    <input id="target_tab" type="checkbox">
+                                    Open in new tab
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="field is-grouped is-grouped-multiline">
+                            <p class="control">
+                                <button class="button is-link"
+                                    onclick="getApi('getWebhookInfo')">getWebhookInfo</button>
+                            </p>
+                            <p class="control">
+                                <button class="button is-link"
+                                    onclick="getApi('getMe')">getMe</button>
+                            </p>
+                            <p class="control">
+                                <button class="button is-link"
+                                    onclick="getApi('getUpdates')">getUpdates</button>
+                            </p>
+                            <p class="control">
+                                <button class="button is-link"
+                                    onclick="getApi('getChatAdministrators')">getChatAdministrators</button>
+                            </p>
+                            <p class="control">
+                                <button class="button is-link"
+                                    onclick="getApi('getChatMemberCount')">getChatMemberCount</button>
+                            </p>
+                            <p class="control">
+                                <button class="button is-link"
+                                    onclick="getApi('getChatMember')">getChatMember</button>
+                            </p>
+                        </div>
+
+                        <div class="field">
+                            <progress id="progress"
+                                class="progress is-small is-primary is-hidden"
+                                max="100">15%</progress>
+                        </div>
+
+                    </div>
+
+                    <div class="column is-half ">
+                        <h2
+                            class="subtitle has-text-weight-bold has-text-centered">Result</h2>
+
+                        <div class="field">
+                            <textarea class="textarea is-info"
+                                id="telegram_result" readonly
+                                placeholder="result" rows="10"></textarea>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section class="section">
-            <div class="container  is-widescreen">
+            <div class="container ">
                 <div class="content ">
                     <div class="columns">
                         <div class="column is-8 has-text-left">
-                            <p class="title is-6">© 2013 - 2024 | <a
-                                    href="https://bayramoff.com/pages/donate">Müəllifə
-                                    dəstək</a></p>
-                        </div>
-
-                        <div class="column is-2 has-text-right">
-                            <!-- <p class="title is-4">Discover</p> -->
-                            <p class="subtitle is-6">
-                                <a target="_blank" rel="noopener"
-                                    href="https://t.me/bayramoff_com">
-                                    Telegram <i class="fa-brands fa-telegram"
-                                        aria-hidden="true"></i>
-                                </a>
-                            </p>
-                            <p class="subtitle is-6">
-                                <a target="_blank" rel="noopener"
-                                    href="https://kofe.al/@bayramoff-com">
-                                    Kofe.al <i class="fa-solid fa-mug-hot"
-                                        aria-hidden="true"></i>
-                                </a>
-                            </p>
-
-                        </div>
-
-                        <div class="column is-2 has-text-right">
-                            <!-- <p class="title is-4">Discover</p> -->
-                            <p class="subtitle is-6">
-                                <a href="https://bayramoff.com/sitemap.xml">
-                                    Sitemap <i class="fa-solid fa-sitemap"
-                                        aria-hidden="true"></i>
-                                </a>
-                            </p>
-
-                            <p class="subtitle is-6">
-                                <a href="https://bayramoff.com/rss.xml">
-                                    RSS <i class="fa-solid fa-rss"
-                                        aria-hidden="true"></i>
-                                </a>
-                            </p>
+                            <p class="title is-6">2024 © bayramoff</p>
                         </div>
 
                     </div>
