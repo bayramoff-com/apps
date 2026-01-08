@@ -140,6 +140,35 @@
       opacity: 0.9;
     }
 
+    .install-button {
+      margin-top: 1.25rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 0.85rem 1.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(34, 197, 94, 0.15);
+      color: var(--fg);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: background 200ms ease, transform 150ms ease;
+      width: 100%;
+    }
+
+    .install-button:hover {
+      background: rgba(34, 197, 94, 0.25);
+      transform: translateY(-1px);
+    }
+
+    .install-button:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      transform: none;
+    }
+
     footer {
       margin-top: 2.25rem;
       font-size: 0.85rem;
@@ -211,9 +240,9 @@
         <circle class="glow" cx="150" cy="45" r="18" fill="#22c55e" filter="url(#glow)" />
         <circle class="thumb" cx="50" cy="45" r="26"></circle>
       </svg>
-    </button>
+    </button> 
     <footer>
-      <a href="https://bayramoff.com" target="_blank" rel="noreferrer noopener">Bayramoff</a> | <a href="https://richtr.github.io/NoSleep.js/" target="_blank" rel="noreferrer noopener">NoSleep.js</a>
+      <a href="https://bayramoff.com" target="_blank" rel="noreferrer noopener">Bayramoff</a> | <a href="https://richtr.github.io/NoSleep.js/" target="_blank" rel="noreferrer noopener">NoSleep.js</a> | <a href="#" id="installButton" >Install</a>
     </footer>
   </main>
 
@@ -222,11 +251,13 @@
     const statusEl = document.getElementById('status');
     const timerEl = document.getElementById('timer');
     const toggleButton = document.getElementById('toggle');
+    const installButton = document.getElementById('installButton');
     const noSleep = new NoSleep();
     const timerDefaultText = 'Running time: 00:00';
     let isEnabled = false;
     let timerStart = null;
     let timerInterval = null;
+    let deferredInstallPrompt = null;
 
     const formatDuration = (ms) => {
       const totalSeconds = Math.floor(ms / 1000);
@@ -291,6 +322,43 @@
 
     updateUI();
     stopTimer();
+
+    const hideInstallButton = () => {
+      if (installButton) {
+        installButton.hidden = true;
+        installButton.disabled = false;
+      }
+    };
+
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+      hideInstallButton();
+    }
+
+    window.addEventListener('beforeinstallprompt', (event) => {
+      event.preventDefault();
+      deferredInstallPrompt = event;
+      if (installButton) {
+        installButton.hidden = false;
+      }
+    });
+
+    if (installButton) {
+      installButton.addEventListener('click', async () => {
+        if (!deferredInstallPrompt) {
+          return;
+        }
+        installButton.disabled = true;
+        deferredInstallPrompt.prompt();
+        await deferredInstallPrompt.userChoice;
+        deferredInstallPrompt = null;
+        hideInstallButton();
+      });
+    }
+
+    window.addEventListener('appinstalled', () => {
+      deferredInstallPrompt = null;
+      hideInstallButton();
+    });
 
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
